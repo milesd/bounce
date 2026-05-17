@@ -117,3 +117,15 @@ print(libc.crypt(b'yourpassword', b'ab').decode())
 
 Replace the `PASSWORD_HASH` and `CTRL_PASSWORD_SALT` defines at the top of `bounce.c`,
 then recompile.
+
+## Files
+
+| File | Description |
+| ---- | ----------- |
+| `bounce` | Original 1993 binary (Linux/i386 QMAGIC format) |
+| `bounce.c` | Reconstructed C source |
+| `bounce.init` | Original startup script |
+| `bouncerc` | Original config file |
+| `DecompileAll.java` | Ghidra headless script that decompiled all functions and dumped them to C; needed to re-run the decompilation or examine any specific function |
+| `bounce_decompiled.c` | Raw 27,380-line Ghidra output before reconstruction — 571 functions, most statically-linked libc, application logic in the first ~1,200 lines |
+| `crackbounce.c` | Fork-based parallel DES crypt brute-forcer used in a side quest to attempt recovering the original control password |
