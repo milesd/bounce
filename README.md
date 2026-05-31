@@ -15,7 +15,7 @@ What made it a nice hack specifically:
 - Telnet control interface — you could add/remove forward rules live without restarting
 - Pre-auth wasn't required on the relay — just having a shell account on an intermediate machine was enough
 
-socat is probably the closest modern equivalent in spirit — it's still used for quick-and-dirty TCP splicing. But for the "get past a firewall in college" use case, you'd just use SSH's `-L`/`-R`/`-D` flags today, or WireGuard if you want it persistent.
+`socat` is probably the closest modern equivalent in spirit — it's still used for quick-and-dirty TCP splicing. But for the "get past a firewall in college" use case, you'd just use SSH's `-L`/`-R`/`-D` flags today, or WireGuard if you want it persistent.
 
 The interesting thing about the binary: it was compiled for Linux QMAGIC format, which predates ELF (ELF became standard on Linux around 1995). So this was genuinely early-days Linux — kernel 0.99 or 1.0 era stuff.
 
@@ -128,4 +128,3 @@ then recompile.
 | `bouncerc` | Original config file |
 | `DecompileAll.java` | Ghidra headless script that decompiled all functions and dumped them to C; needed to re-run the decompilation or examine any specific function |
 | `bounce_decompiled.c` | Raw 27,380-line Ghidra output before reconstruction — 571 functions, most statically-linked libc, application logic in the first ~1,200 lines |
-| `crackbounce.c` | Fork-based parallel DES crypt brute-forcer used in a side quest to attempt recovering the original control password |
